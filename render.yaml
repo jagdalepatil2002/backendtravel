@@ -1,0 +1,34 @@
+# render.yaml
+# This file configures the services for deployment on Render.
+# For more details, see https://render.com/docs/blueprint-spec
+
+services:
+  # A Web Service for the Flask Backend
+  - type: web
+    name: travel-backend # You can change this name
+    env: python
+    plan: free # 'free' tier is suitable for development/hobby projects
+    pythonVersion: "3.11"
+    buildCommand: |
+      pip install -r requirements.txt
+      # The following command initializes the database.
+      # It's assumed that init_db() is idempotent (safe to run on every deploy).
+      # For more complex applications, consider using a migration tool like Flask-Migrate.
+      flask --app app db-init-command
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: travel-db
+          property: connectionString
+      - key: GEMINI_API_KEY
+        sync: false # Mark as secret, value will be set in Render dashboard
+      - key: MURF_API_KEY
+        sync: false # Mark as secret, value will be set in Render dashboard
+
+  # A PostgreSQL Database
+  - type: pserv
+    name: travel-db
+    env: postgres
+    plan: free # 'free' tier provides a database that sleeps after inactivity
+    postgresMajorVersion: 14
