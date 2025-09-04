@@ -53,10 +53,10 @@ def get_regenerate_section_prompt(place_name, section_title, current_text, user_
     {current_text}
     {instruction_text}
     Please rewrite this section with the following improvements:
-    1. Keep the same conversational, friendly tone as if speaking directly to the traveler
-    2. Add more vivid details and specific recommendations 
-    3. Make it more engaging and informative
-    4. Maintain the appropriate length (similar to the current text)
+    1.Focus on user input what user wants from instruction_text.
+    2. Keep the same conversational, friendly tone as if speaking directly to the traveler
+    3. Add more vivid details and specific recommendations 
+    4. Make it more engaging and informative
     5. Ensure the content remains factually accurate about {place_name}
     Return ONLY the new content for this section, without any additional formatting or notes.
     Do not include the section title or any markdown heading in your response.
