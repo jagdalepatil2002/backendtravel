@@ -4,7 +4,7 @@ def get_initial_search_prompt(location):
     Asks the LLM to return a valid JSON string.
     """
     return f"""
-    You are a travel expert. Your task is to identify the 10 most famous and must-see tourist attractions in or very near '{location}'.
+    You are a travel expert. Your task is to identify the 9 most famous and must-see tourist attractions in or very near '{location}'.
     If the location itself is a specific landmark (like 'Eiffel Tower'), list it first, followed by 9 other famous places nearby.
 
     Provide the output as a single, minified JSON array of objects. Do not include any text before or after the JSON array.
