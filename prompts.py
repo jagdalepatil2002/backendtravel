@@ -25,7 +25,8 @@ def get_detailed_description_prompt(place_name):
     You are a world-class travel writer and guide. Write an extremely detailed, comprehensive, and engaging travel guide for "{place_name}" in 8 sections, each clearly marked with a markdown heading (e.g., ## Introduction, ## History and Significance, etc.). Each section should be thorough, and the total length should be at least 10,000 words.
     Generate a captivating and comprehensive travel guide for them, written in a conversational and engaging tone, as if you are speaking to them directly. The total length should be between 800 and 1000 words.
 
-    Your response must be a single block of text with words ranging from 5000 to 1000, perfect for a text-to-speech service.
+    Your response must be a single block of text with words ranging from 2000 to 5000, perfect for a text-to-speech service.
+    You should not give puncuation such as '*' , '```'in output as I am going to use this output for for a text-to-speech service.
 
     Structure your guide like this:
     1.  **Introduction:** Start with a warm welcome. Greet the traveler and introduce "{place_name}" in an exciting way.
