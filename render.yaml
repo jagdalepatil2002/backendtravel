@@ -15,7 +15,7 @@ services:
       # It's assumed that init_db() is idempotent (safe to run on every deploy).
       # For more complex applications, consider using a migration tool like Flask-Migrate.
       flask --app app db-init-command
-    startCommand: "gunicorn app:app"
+    startCommand: "gunicorn --timeout 120 app:app"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
