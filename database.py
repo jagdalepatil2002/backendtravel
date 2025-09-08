@@ -6,8 +6,10 @@ from dotenv import load_dotenv
 # --- Database Connection ---
 def get_db_connection():
     """Establishes a connection to the PostgreSQL database."""
-    conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
+    # Set the client encoding to UTF-8 to handle a wide range of characters
+    conn = psycopg2.connect(os.environ.get('DATABASE_URL'), client_encoding='utf8')
     return conn
+
 
 # --- Table Setup ---
 def init_db():
